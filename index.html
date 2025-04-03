@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        async function fetchAndRedirect() {
+            try {
+                let response = await fetch('http://localhost:8080/api/v1/magic-link/generate?role=MAGIC_LINK_USER', { // Replace with your actual API URL
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({}) // Include any required payload
+                });
+
+                let data = await response.json();
+                if (data.magicLink) {
+                    window.location.href = data.magicLink;
+                } else {
+                    document.body.innerHTML = "<h2>Error: No magic link found.</h2>";
+                }
+            } catch (error) {
+                document.body.innerHTML = "<h2>Failed to fetch magic link.</h2>";
+            }
+        }
+
+        fetchAndRedirect();
+    </script>
+</head>
+<body>
+    <h2>Redirecting...</h2>
+</body>
+</html>
