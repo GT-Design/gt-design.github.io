@@ -7,7 +7,7 @@
     <script>
         async function fetchAndRedirect() {
             try {
-                let response = await fetch('http://localhost:8080/api/v1/magic-link/generate?role=MAGIC_LINK_USER', { // Replace with your actual API URL
+                let response = await fetch('https://intranet.gtdesign.it/api/v1/magic-link/generate?role=MAGIC_LINK_USER', { // Replace with your actual API URL
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({}) // Include any required payload
